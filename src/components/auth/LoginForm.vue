@@ -335,7 +335,7 @@ export default {
       this.$api
         .post(endpointURL, user)
         .then((response) => {
-          console.log(JSON.stringify(response));
+          this.$router.push("/movies");
         })
         .catch((error) => {
           this.$q.notify({

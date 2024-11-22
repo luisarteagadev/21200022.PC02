@@ -7,16 +7,16 @@
 
   <section class="content">
     <div class="container" style="margin-top: 10px">
-      <h1>Welcome to Our Website!</h1>
-      <p>Get plenty of knowledge by our wonderful courses.</p>
+      <h1>Welcome TO SHOWMOVIES!</h1>
+      <p>Discover the best movies at your fingertips</p>
     </div>
     <div class="container" style="margin-top: 10px">
       <div class="product-page">
         <div class="product-filter q-ml-md q-mr-xl">
-          <ProductFilter @categoriaCambiada="actualizarCategoria" />
+          <ProductFilter @filtrosSeleccionados="actualizarMovies" />
         </div>
         <div class="product-list">
-          <ProductList :categoriaFiltrada="categoriaSeleccionada" />
+          <ProductList :filtro="filtrosSeleccionados" />
         </div>
       </div>
     </div>
@@ -67,13 +67,21 @@ header {
 </style>
 
 <script>
+import ProductFilter from "src/components/product/ProductFilter.vue";
+import ProductList from "src/components/product/ProductList.vue";
 export default {
   name: "ProductPage",
-  components: {},
+  components: { ProductFilter, ProductList },
+
   data() {
     return {
-      categoriaSeleccionada: null,
+      filtrosSeleccionados: null,
     };
+  },
+  methods: {
+    actualizarMovies(filtro) {
+      this.filtrosSeleccionados = filtro;
+    },
   },
 };
 </script>

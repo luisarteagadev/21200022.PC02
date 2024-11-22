@@ -9,6 +9,7 @@ import axios from "axios";
 // for each client)
 const api = axios.create({ baseURL: "http://68.183.142.21" });
 
+const api2 = axios.create({ baseURL: "https://api.themoviedb.org" });
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
@@ -17,8 +18,10 @@ export default boot(({ app }) => {
   //       so you won't necessarily have to import axios in each vue file
 
   app.config.globalProperties.$api = api;
+  app.config.globalProperties.$api2 = api2;
+
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
 });
 
-export { api };
+export { api, api2 };
